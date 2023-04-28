@@ -1,0 +1,164 @@
+/* css reset（重置） */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+*:before,
+*:after {
+    box-sizing: border-box;
+} /*这句代码表示：使所有伪元素盒模型是 border-box */
+ul,
+ol {
+    list-style: none;
+}
+a {
+    color: initial;
+    text-decoration: none;
+}
+/* 
+颜色用继承；即保留 a 元素的初始颜色
+text-decoration属性定义段落文本的下划线、删除线和顶划线。none即为默认值，可以用这个属性值也可以去掉已经有下划线或删除线或顶划线的样式 
+*/
+/*在更改调试中删除了a标签，这里做保留是为了熟悉a标签*/
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* style */
+body {
+    background: #eee;
+} /*这里给 body 加 background 会加给整个页面，不仅仅是body范围内的。因为浏览器会自动把背景色扩展到整个网页*/
+
+.globalHeader {
+    margin: 20px;
+}
+@media (min-width: 500px) {
+    .globalHeader {
+        margin-top: 160px;
+        margin-bottom: 80px;
+    }
+}
+.searchForm {
+    display: flex; /* flex 布局 */
+    justify-content: space-between; /*主轴（横轴）对齐方式：分散对齐*/
+    height: 40px;
+}
+@media (min-width: 500px) {
+    .searchForm {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        /*当元素有最大宽度时，可以用margin-left: auto;margin-right: auto;来进行居中*/
+    }
+} /* @media：媒体查询，主要区别pc端和手机端。（在这里意思是当页面最小宽度大于500px时，searchForm的最大宽度是400px。页面小于500px时，不做要求。500px是想做一下PC端和手机端的区分）*/
+.searchForm > input {
+    width: 100%;
+    margin-right: 10px;
+    padding: 0 10px;
+    border-radius: 4px; /*添加圆角*/
+    border: 1px solid #ddd; /*input 有自己的默认的 border （border:1px solid #ddd；） 。我们也可以 border:none; 来删掉 input 的 border 自己添加。这里没做改变*/
+}
+.globalHeader .searchForm > button {
+    white-space: nowrap; /*不换行。（不加这一句上面把 input 宽度设置为100%会把 button 挤得上下变宽）*/
+    padding: 0 24px;
+    border: 1px solid #ddd;
+    background: #0282b9;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px; /*字体大小*/
+}
+
+.globalMain {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.siteList {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap; /*换行*/
+    justify-content: space-between; /*分散布局*/
+}
+@media (min-width: 500px) {
+    .siteList {
+        margin-left: 0px;
+        margin-right: -25px; /*每行保留5个多了25px，所以右侧要缩减25px */
+        justify-content: flex-start;
+    }
+}
+.siteList > li {
+    margin-bottom: 10px;
+}
+@media (min-width: 500px) {
+    .siteList > li {
+        margin-right: 25px;
+    }
+}
+.siteList .site {
+    /*css选择器可以不完全符合HTML，比如这里跳过了 li 。注意空格*/
+    width: 160px;
+    display: flex;
+    justify-content: center; /*主轴（横轴）对齐方式：居中对齐*/
+    align-items: center; /*次轴（纵轴）对齐方式：居中对齐*/
+    flex-direction: column; /*元素流动方向：从上到下*/
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px 0;
+    position: relative; /*相对定位*/
+    cursor: pointer; /*当鼠标浮在site上时，鼠标指针变成手指形状*/
+    /*cursor 属性规定要显示的光标的类型（形状）*/
+}
+.siteList .site .logo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center; /*主轴（横轴）对齐方式：居中对齐*/
+    align-items: center; /*次轴（纵轴）对齐方式：居中对齐*/
+    font-size: 56px;
+    text-transform: uppercase; /* 将文本logo变成大写（这个在js里也实现了，用的toUppercase。实际使用一个就行，这里为学习做了保留）*/
+}
+.siteList .site .link {
+    font-size: 14px;
+    margin-top: 4px;
+}
+.siteList .site .close {
+    position: absolute; /*绝对定位*/
+    right: 8px;
+    top: 4px;
+    display: none; /*隐藏关闭（close）按钮*/
+    cursor: default; /*当鼠标指针浮在关闭按钮时，显示默认形状（箭头）*/
+}
+.siteList .site:hover .close {
+    display: block;
+} /*当鼠标浮在site上时，显示关闭按钮*/
+.siteList .addButton {
+    border: 1px solid #ddd;
+    background: white;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.siteList .addButton .icon {
+    width: 56px;
+    height: 56px;
+}
+.siteList .addButton .text {
+    font-size: 14px;
+    margin-top: 4px;
+}
+.siteList .addButton .icon-wrapper {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*# sourceMappingURL=style.c8d83d31.css.map */

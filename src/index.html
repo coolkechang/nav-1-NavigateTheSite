@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <!--淘宝的<meta name="viewport" ...>复制过来的（原代码支持手机双指放大操作，本次项目不支持）-->
+  <title>前航-导航网站</title>
+  <link rel="stylesheet" href="style.css">
+  <style type="text/css">
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+  </style><!--这个 .icon 来源于iconfont网站-->
+</head>
+
+<body>
+  <header class="globalHeader">
+    <form class="searchForm" method="get" action="https://www.baidu.com/s" target="_blank">
+      <input name="wd" type="text">
+      <button type="submit">搜索</button>
+    </form>
+    <!--
+    form标签：发送请求并刷新页面
+    method="get"：使用 git 请求
+    action:控制请求哪个页面，这里设置为百度
+    target="_blank":在新页面打开，不加这句则在本页面打开
+    -->
+  </header>
+
+  <main class="globalMain">
+    <ul class="siteList"><!--站点列表-->
+      <!--
+       <li>
+        <a href="https://www.acfun.cn">
+          <div class="site">
+            <div class="logo">A</div>
+            <div class="link">acfun.cn</div>
+          </div>
+        </a>
+        //一般来说内联元素里面不能放块级元素，但是a标签特殊，它可以（a标签内联元素，div是块级元素)
+      </li>
+      <li>
+        <a href="http://www.bilibili.com">
+          <div class="site">
+            <div class="logo">
+              <img src="./images/bilibili.jpg" alt="">
+            </div>
+            <div class="link">bilibili.com</div>
+          </div>
+        </a>
+      </li>
+      //这两个li 在main.js中用一个由哈希表组成的数组实现了。这里可以删了
+      -->
+      <li class="last">
+        <div class="addButton">
+          <div class="icon-wrapper">
+            <svg class="icon">
+              <use xlink:href="#icon-add"></use>
+            </svg>
+          </div>
+          <!--这个div里面的svg来源于iconfont网站-->
+          <div class="text">新增网站</div>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+  <script src="//at.alicdn.com/t/c/font_4040411_2u4516c31p7.js"></script>
+  <!--这个script最好是放在 <script src="main.js"></script> 前面-->
+  <!--这个链接来源于iconfont网站-->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!--这里是直接引用 bootCDN 网站的开源的 jQuery 库-->
+  <!--这样引用做好放在 <script src="main.js"></script> 前面-->
+  <script src="main.js"></script>
+</body>
+
+</html>
