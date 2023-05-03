@@ -184,9 +184,15 @@ window.onbeforeunload = function () {
   localStorage.setItem('x', string); //在本地设置一个x,x的值是string。即存储的数据将保存在浏览器会话中，并且是长期保存
 }; //onbeforeunload 事件在即将离开当前页面（刷新或关闭）时触发。该事件可用于弹出对话框，提示用户是继续浏览页面还是离开当前页面。
 //在这里指当用户顾关闭或者刷新页面时，会将当前 hashMap 存到 x 里
+//$(header).off('keypress')
 
 
 $(document).on('keypress', function (e) {
+  if ($(e.target).closest('header').length > 0) {
+    return;
+  } // 当触发事件的元素在 header 元素内时，不执行处理函数并且阻止事件冒泡
+
+
   var key = e.key; //是 const key = e.key 的简写。当发现变量名和属性名一样时，可这样简写。
 
   for (var i = 0; i <= hashMap.length; i++) {
@@ -198,4 +204,4 @@ $(document).on('keypress', function (e) {
 }); //监听用户键盘按下，可以对document元素来操作。
 //这段代码实现了用户可以直接点击对应logo字母的键盘按键来完成页面跳转。但是如果出现新增网站中有多个首字母一样的，只能跳转到第一个。
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.607a829a.js.map
+//# sourceMappingURL=main.ae0fb1c1.js.map

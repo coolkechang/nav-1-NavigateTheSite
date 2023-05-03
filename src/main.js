@@ -75,8 +75,13 @@ window.onbeforeunload = () => {
 }
 //onbeforeunload 事件在即将离开当前页面（刷新或关闭）时触发。该事件可用于弹出对话框，提示用户是继续浏览页面还是离开当前页面。
 //在这里指当用户顾关闭或者刷新页面时，会将当前 hashMap 存到 x 里
+//$(header).off('keypress')
 
 $(document).on('keypress', (e) => {
+    if ($(e.target).closest('header').length > 0) {
+        return
+    }
+    // 当触发事件的元素在 header 元素内时，不执行处理函数并且阻止事件冒泡
     const { key } = e //是 const key = e.key 的简写。当发现变量名和属性名一样时，可这样简写。
     for (let i = 0; i <= hashMap.length; i++) {
         if (hashMap[i].logo.toLowerCase() === key) {
